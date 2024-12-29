@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tech Millers - Simplifying Technology for a Better Future">
+  <title>Tech Millers</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-gray-200">
+  <section id="wind-speed-chart">
+    <canvas id="windSpeedChart" class="mx-auto w-full md:w-2/3 h-80 rounded-lg shadow-lg"></canvas>
+    <p class="mt-4 text-gray-400">Interactive graph showing live wind speed data.</p>
+  </section>
+
+  <script>
+    // Function to fetch wind speed data from OpenWeatherMap API
+    async function fetchWindSpeed() {
+      const apiKey = 'YOUR_API_KEY'; // Replace with your OpenWeatherMap API key
+      const city = 'Mumbai'; // Replace with your desired city (Indian city)
+      const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+
+      try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        return data.wind.speed; // Wind speed in m/s
+      } catch (error) {
+        console.error('Error fetching wind speed:', error);
+        return 0; // Return 0 in case of error
+      }
+    }
+
+    // Create a function to simulate real-time updates
+    async function createRealTimeChart() {
+      const ctx = document.getElementById('windSpeedChart').getContext('2d');
+      const windSpeedChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: [],  // X-axis labels (time)
+          datasets: [{
+            label: 'Wind Speed (m/s)',
+            data: [],  // Y-axis data (wind speed)
+            borderColor: '#4C9D9B',
+            backgroundColor: 'rgba(76, 157, 155, 0.2)',
+            borderWidth: 2,
+            pointBackgroundColor: '#4C9D9B',
+            pointBorderColor: '#4C9D9B',
+            pointRadius: 5
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: {
+                stepSize: 1
+              }
+            }
+          }
+        }
+      });
+
+      // Function to add new data to the chart every 10 seconds
+      setInterval(async () => {
+        // Fetch wind speed data from API
+        const newWindSpeed = await fetchWindSpeed();
+        const currentTime = new Date().toLocaleTimeString();
+
+        // Add new data to the chart
+        windSpeedChart.data.labels.push(currentTime); // Add new label (time)
+        windSpeedChart.data.datasets[0].data.push(newWindSpeed); // Add new data (wind speed)
+
+        // Keep the chart up to date by removing older data to simulate real-time data
+        if (windSpeedChart.data.labels.length > 10) {
+          windSpeedChart.data.labels.shift();
+          windSpeedChart.data.datasets[0].data.shift();
+        }
+
+        // Update the chart
+        windSpeedChart.update();
+      }, 10000);  // Update every 10 seconds
+    }
+
+    // Initialize the chart
+    createRealTimeChart();
+  </script>
+</body>
+</html>

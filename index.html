@@ -69,69 +69,134 @@
     </div>
   </section>
 
-  <!-- Vision Section -->
-  <section id="our-vision" class="relative bg-gradient-to-b from-gray-900 to-black text-gray-200 py-20 overflow-hidden">
-    <div class="absolute inset-0 animate-gradient-move bg-gradient-to-r from-teal-400 via-purple-600 to-blue-500 opacity-10"></div>
-    <div class="relative container mx-auto px-6 text-center">
-      <h2 class="text-5xl font-extrabold text-teal-400 mb-8">Our Vision</h2>
-      <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
-        "At Tech Millers, our vision is to simplify technology and make it a seamless part of everyday life. We aim to solve real problems with innovative and sustainable solutions, empowering people to achieve more with less effort."
-      </p>
-      <!-- Interactive Globe -->
+<!-- Vision Section -->
+<section id="our-vision" class="relative bg-gradient-to-b from-gray-900 to-black text-gray-200 py-20 overflow-hidden">
+  <div class="absolute inset-0 animate-gradient-move bg-gradient-to-r from-teal-400 via-purple-600 to-blue-500 opacity-10"></div>
+  <div class="relative container mx-auto px-6 text-center">
+    <h2 class="text-5xl font-extrabold text-teal-400 mb-8">Our Vision</h2>
+    <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-12 leading-relaxed">
+      "At Tech Millers, our vision is to make technology simple and accessible. We use data to create solutions that solve real-world problems, helping people achieve more with less effort."
+    </p>
+    
+    <!-- Interactive Globe -->
+    <div class="mt-16">
+      <h3 class="text-4xl font-extrabold text-teal-500 mb-6">
+        Case Study: Understanding Wind Speed through Global Visualization
+      </h3>
+      
       <iframe 
         src="https://earth.nullschool.net/#current/wind/surface/level/orthographic" 
         class="w-full md:w-2/3 mx-auto h-80 rounded-lg shadow-lg"
         title="Interactive Globe Visualization">
       </iframe>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-4">
+        "<span class="font-semibold text-teal-500">The globe</span> shows <span class="font-semibold text-teal-500">real-time wind speeds</span>, aiding industries like <span class="font-semibold text-teal-500">weather, aviation, and energy</span>."
+      </p>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto mb-4">
+        "<span class="font-semibold text-teal-500">Equator regions</span> have weaker winds, while <span class="font-semibold text-teal-500">poles</span> have stronger ones, helping with <span class="font-semibold text-teal-500">turbine placement</span> and <span class="font-semibold text-teal-500">forecasts</span>."
+      </p>
+      <p class="text-lg text-gray-300 max-w-3xl mx-auto">
+        "Tracking <span class="font-semibold text-teal-500">wind changes</span> improves <span class="font-semibold text-teal-500">weather understanding</span>, benefiting <span class="font-semibold text-teal-500">science, energy, and transport</span>."
+      </p>
     </div>
-  </section>
-  <section class="bg-gray-900 text-gray-200 py-16">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-8">Website Traffic Data</h2>
-      <canvas id="myChart" class="mx-auto w-full md:w-2/3 h-80 rounded-lg shadow-lg"></canvas>
-      <p class="mt-4 text-gray-400">Interactive graph showing the monthly website traffic.</p>
+
+    <!-- Graph Section -->
+    <div class="py-20">
+      <h2 class="text-3xl font-bold text-teal-400 mb-8">Data change and we adopt...!</h2>
+      <canvas id="dynamicGraph" class="w-full md:w-2/3 mx-auto h-80 bg-black"></canvas>
     </div>
-  </section>
-  
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    // Sample dataset representing monthly website traffic (number of visitors)
-    const data = {
-      labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'],
-      datasets: [{
-        label: 'Website Visitors (in thousands)',
-        data: [120, 150, 180, 200, 250, 300, 350, 400, 450, 500, 600, 700],  // Monthly data
-        borderColor: '#FF5733',
-        backgroundColor: 'rgba(255, 87, 51, 0.2)',
-        borderWidth: 2,
-        pointBackgroundColor: '#FF5733',
-        pointBorderColor: '#FF5733',
-        pointRadius: 5
-      }]
-    };
-  
-    // Chart configuration
-    const config = {
-      type: 'line',  // You can also try 'bar', 'pie', etc.
-      data: data,
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              stepSize: 100
-            }
-          }
-        }
-      }
-    };
-  
-    // Create the chart
-    const ctx = document.getElementById('myChart').getContext('2d');
-    const myChart = new Chart(ctx, config);
-  </script>
-  
+  </div>
+</section>
+
+<div class="mt-12 text-center">
+  <h3 class="text-3xl font-extrabold text-teal-500 mb-6">
+    Innovation in Motion
+  </h3>
+
+  <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+    <!-- Visual Elements -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Robotics -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-teal-500 transition duration-300 ease-in-out">
+        <div class="flex justify-center mb-4">
+          <!-- Robotics Icon (FontAwesome) -->
+          <i class="fas fa-robot h-16 w-16 text-teal-500 mb-4"></i>
+        </div>
+        <span class="block text-xl text-teal-400 font-semibold">Automation</span>
+        <p class="text-sm text-gray-300 mt-2">Pushing boundaries in robotics to create smart, automated systems for a wide range of industries.</p>
+      </div>
+
+      <!-- Machine Learning -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-teal-500 transition duration-300 ease-in-out">
+        <div class="flex justify-center mb-4">
+          <!-- Machine Learning Icon (FontAwesome) -->
+          <i class="fas fa-brain h-16 w-16 text-teal-500 mb-4"></i>
+        </div>
+        <span class="block text-xl text-teal-400 font-semibold">Intelligence</span>
+        <p class="text-sm text-gray-300 mt-2">Leveraging machine learning to create intelligent systems capable of solving complex problems and improving efficiency.</p>
+      </div>
+
+      <!-- Climate Data -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-teal-500 transition duration-300 ease-in-out">
+        <div class="flex justify-center mb-4">
+          <!-- Climate Data Icon (FontAwesome) -->
+          <i class="fas fa-sun h-16 w-16 text-teal-500 mb-4"></i>
+        </div>
+        <span class="block text-xl text-teal-400 font-semibold">Sustainability</span>
+        <p class="text-sm text-gray-300 mt-2">Innovating with climate data to develop solutions that support sustainability and improve our environment.</p>
+      </div>
+
+      <!-- Defense Technologies -->
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg hover:bg-teal-500 transition duration-300 ease-in-out">
+        <div class="flex justify-center mb-4">
+          <!-- Defense Icon (FontAwesome) -->
+          <i class="fas fa-fighter-jet h-16 w-16 text-teal-500 mb-4"></i>
+        </div>
+        <span class="block text-xl text-teal-400 font-semibold">Defense</span>
+        <p class="text-sm text-gray-300 mt-2">Developing cutting-edge defense technologies to enhance security, surveillance, and advanced combat solutions.</p>
+      </div>
+    </div>
+  </p>
+
+  <!-- Inspirational Quote with Typing Effect -->
+  <p class="text-lg text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed">
+    <span class="typing-effect text-3xl text-teal-500">"In every challenge,</span>
+    <span class="text-xl text-pink-400">there’s an opportunity. </span>
+    <span class="text-2xl text-blue-500">Innovation isn’t just about creating,</span>
+    <span class="text-2xl text-yellow-500">it’s about evolving, adapting,</span>
+    <span class="text-xl text-green-500">and discovering new paths."</span>
+  </p>
+</div>
+
+<!-- Typing Effect Style -->
+<style>
+  .typing-effect {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+    animation: typing 3s steps(40) forwards, blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes blink-caret {
+    50% {
+      border-color: transparent;
+    }
+  }
+</style>
+
+
+
+
 
   <!-- Footer -->
   <footer class="bg-gray-900 border-t border-gray-700">
@@ -179,6 +244,47 @@
         });
       });
     });
+
+    // Dynamic Graph with Random Values
+    const ctx = document.getElementById('dynamicGraph').getContext('2d');
+    const data = {
+      labels: Array.from({ length: 10 }, (_, i) => `Point ${i + 1}`),
+      datasets: [{
+        label: 'Random Data',
+        data: Array.from({ length: 10 }, () => Math.floor(Math.random() * 100)),
+        borderColor: 'rgba(29, 78, 216, 1)',
+        backgroundColor: 'rgba(29, 78, 216, 0.3)',
+        borderWidth: 2,
+        fill: true
+      }]
+    };
+    
+    const config = {
+      type: 'line',
+      data: data,
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            display: true,
+          },
+        },
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+    
+    const myChart = new Chart(ctx, config);
+
+    // Update graph every 2 seconds
+    setInterval(() => {
+      const newData = Array.from({ length: 10 }, () => Math.floor(Math.random() * 100));
+      myChart.data.datasets[0].data = newData;
+      myChart.update();
+    }, 2000);
   </script>
 </body>
 </html>
